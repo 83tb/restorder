@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from order.models import Lamp, Area
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -11,10 +13,26 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-from msg.models import Msg
+from order.models import Msg
 
 class MsgSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Msg
         fields = ('message_id','timestamp','source','destination','channel','signature','body')
 
+
+
+from rest_framework_gis import serializers
+
+
+class AreaSerializer(serializers.GeoFeatureModelSerializer):
+    class Meta:
+        model = Area
+        geo_field = "mpoly"
+        fields = ('identifier', 'label', 'mpoly')
+
+class LampSerializer(serializers.GeoFeatureModelSerializer):
+    class Meta:
+        model = Lamp
+        geo_field = "mpoint"
+        fields = ('identifier', 'mpoint')

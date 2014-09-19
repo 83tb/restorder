@@ -1,3 +1,8 @@
+
+*** These modified files were found in JOE when it aborted on Tue Sep  9 14:54:43 2014
+*** JOE was aborted by UNIX signal 15
+
+*** File 'restorder/urls.py'
 from django.conf.urls import patterns, url, include
 from rest_framework import routers, permissions
 from order import views
@@ -6,11 +11,8 @@ router = routers.DefaultRouter()
 #router.register(r'users', views.UserViewSet)
 #router.register(r'groups', views.GroupViewSet)
 
-router.register(r'ars', views.AreaViewSet)
-router.register(r'lamp', views.LampViewSet)
-
-from django.contrib import admin
-admin.autodiscover()
+router.register(r'ars/', views.AreaViewSet)
+router.register(r'lamp/', views.LampViewSet)
 
 
 from rest_framework.urlpatterns import format_suffix_patterns
@@ -29,8 +31,6 @@ urlpatterns = patterns('',
         }),
 
         url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-        url(r'^admin/', include(admin.site.urls)),        
-        
         )
 
 
@@ -46,6 +46,24 @@ urlpatterns_to_suffix = patterns('',
  
  
 urlpatterns_suffixed = format_suffix_patterns(urlpatterns_to_suffix)
-urlpatterns += router.urls
-urlpatterns += urlpatterns_suffixed
 
+urlpatterns += urlpatterns_suffixed
+urlpatterns += router.urls
+
+
+
+*** File '(Unnamed)'
+msg
+
+*** File '(Unnamed)'
+order/views.py
+order/views.py
+order/serializers.py
+order/views.py
+order/views.py
+order/views.py
+restorder/urls.py
+order/views.py
+order/ur
+restorder/urls.py
+restorder/urls.py

@@ -1,9 +1,12 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
+
 import uuid # from http://zesty.ca/python/uuid.html
 import sys
 import base64 
+
+from django.contrib.gis.db import models
  
  
 def fetch_code(custom_string="CODE_"):
@@ -20,7 +23,23 @@ def fetch_code(custom_string="CODE_"):
     b64uid = base64.b64encode(uid.bytes,'-_')
     
     code = b64uid[0:6]
+
+
+
     return custom_string+code
+
+
+
+
+
+def validate_file(fieldfile_obj):
+    """
+    Validation of size
+    """
+    filesize = fieldfile_obj.file.size
+    kilobyte_limit = 65
+    if filesize > kilobyte_limit*1024:
+        raise ValidationError("Max file size is %skB" % str(kilobyte_limit))
 
 # Create your models here.
 class Msg( models.Model ):
@@ -49,3 +68,20 @@ class Msg( models.Model ):
         self.message_id = fetch_code(custom_string="0_")
         super(Msg, self).save(*args, **kwargs)
 
+
+
+
+class Lamp(models.Model):
+    identifier = models.CharField(max_length= 255, blank = True)
+    mpoint = models.PointField()
+    objects = models.GeoManager()
+        
+
+class Area(models.Model):
+    identifier = models.CharField(max_length = 255, blank = True)
+    label = models.CharField(max_length = 255, blank = True)
+    mpoly = models.MultiPolygonField()
+    objects = models.GeoManager()
+    level = models.IntegerField()
+    
+    

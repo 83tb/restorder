@@ -4,10 +4,12 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from msg.serializers import UserSerializer, GroupSerializer
-from msg.models import Msg
+from order.serializers import UserSerializer, GroupSerializer
+from order.models import Msg
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-
+from order.models import Lamp, Area
+from order.serializers import AreaSerializer, LampSerializer
+from rest_framework.renderers import JSONRenderer, YAMLRenderer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -25,8 +27,30 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
-from msg.models import Msg
-from msg.serializers import MsgSerializer
+class AreaViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Area.objects.all()
+    serializer_class = AreaSerializer
+#    renderer_classes = (JSONRenderer, YAMLRenderer)
+
+
+class LampViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Lamp.objects.all()
+    serializer_class = LampSerializer
+#    renderer_classes = (JSONRenderer, YAMLRenderer)      
+    
+    
+
+
+
+
+from order.models import Msg
+from order.serializers import MsgSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
