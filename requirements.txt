@@ -1,2 +1,3 @@
 djangorestframework
 djangorestframework-gis
+django-cors-headers
