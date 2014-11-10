@@ -82,6 +82,6 @@ class Area(models.Model):
     label = models.CharField(max_length = 255, blank = True)
     mpoly = models.MultiPolygonField()
     objects = models.GeoManager()
-    level = models.IntegerField()
+    level = models.IntegerField(blank=True, null=True)
     
     

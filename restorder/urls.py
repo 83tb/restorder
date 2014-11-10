@@ -39,6 +39,12 @@ urlpatterns_to_suffix = patterns('',
         url(r'^message/(?P<pk>[0-9]+)/$', views.MsgDetail.as_view()),
         url(r'^messages/', views.MsgList.as_view()),
         url(r'^last/', views.MsgListLast.as_view()),
+        url(r'^do/', views.do),
+        url(r'^getram/', views.getRamValue),
+        url(r'^setdim/', views.setDim),
+        url(r'^on/', views.turnOn),
+        url(r'^off/', views.turnOff),
+        
 
          url(r'^$', views.MsgList.as_view()),
        

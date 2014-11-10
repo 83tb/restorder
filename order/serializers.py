@@ -29,7 +29,7 @@ class AreaSerializer(serializers.GeoFeatureModelSerializer):
     class Meta:
         model = Area
         geo_field = "mpoly"
-        fields = ('identifier', 'label', 'mpoly')
+        fields = ('identifier', 'label', 'mpoly', 'level')
 
 class LampSerializer(serializers.GeoFeatureModelSerializer):
     class Meta:

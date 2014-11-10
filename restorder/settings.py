@@ -52,6 +52,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_DIRS = (
+    os.path.join("/home/kuba/restorder", 'templates'),
+    )
+    
+
 CORS_ORIGIN_ALLOW_ALL = True
 ROOT_URLCONF = 'restorder.urls'
 
