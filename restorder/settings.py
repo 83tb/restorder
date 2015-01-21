@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -68,14 +67,19 @@ WSGI_APPLICATION = 'restorder.wsgi.application'
 DATABASES = {
     'default': {
 
-	'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'powermanager',                      # Or path to database file if using sqlite3.
+	#'ENGINE': 'django.contrib.gis.db.backends.postgis', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        #'NAME': 'powermanager',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'docker',
-        'PASSWORD': 'docker',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        #'USER': 'docker',
+        #'PASSWORD': 'docker',
+        #'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+        #'PORT': '',                      # Set to empty string for default.
 
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'docker',
+        'USER': 'docker',
+        'HOST': 'db',
+        'PORT': 5432,
 
 
 

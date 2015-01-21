@@ -1,0 +1,21 @@
+db:
+  image:  83tb/docker-django-postgis
+  expose:
+    - 5432
+
+web:
+  build: .
+  links:
+    - db
+
+  command: python manage.py runserver 0.0.0.0:8000
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
+
+
+
+
+
+

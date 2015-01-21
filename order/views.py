@@ -4,10 +4,10 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from order.serializers import UserSerializer, GroupSerializer
+from order.serializers import UserSerializer, GroupSerializer, VolumeSerializer, LGroupSerializer
 from order.models import Msg
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from order.models import Lamp, Area
+from order.models import Lamp, Area, Volume, LGroup
 from order.serializers import AreaSerializer, LampSerializer
 from rest_framework.renderers import JSONRenderer, YAMLRenderer
 
@@ -46,7 +46,21 @@ class LampViewSet(viewsets.ModelViewSet):
     serializer_class = LampSerializer
 #    renderer_classes = (JSONRenderer, YAMLRenderer)      
     
-    
+
+class LGroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = LGroup.objects.all()
+    serializer_class = LGroupSerializer
+#    renderer_classes = (JSONRenderer, YAMLRenderer)
+
+class VolumeViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Volume.objects.all()
+    serializer_class = VolumeSerializer
 
 
 

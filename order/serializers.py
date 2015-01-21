@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from order.models import Lamp, Area
+from order.models import Lamp, Area, LGroup, Volume
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -35,4 +35,16 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
     class Meta:
         model = Lamp
         geo_field = "mpoint"
-        fields = ('identifier', 'mpoint')
+        fields = ('identifier', 'mpoint','group')
+
+class LGroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = LGroup
+
+        fields = ('identifier')
+
+class VolumeSerializer(serializers.HyperLinkedModelSerializer):
+    class Meta:
+        model = Volume
+
+        fields = ('brightness','volume','group')
