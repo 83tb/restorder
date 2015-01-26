@@ -71,7 +71,7 @@ class Msg( models.Model ):
 
 
 class Volume(models.Model):
-    brigtness = models.IntegerField()
+    brightness = models.IntegerField()
     volume = models.IntegerField()
     group = models.ForeignKey('LGroup', blank=True, null=True)
 
