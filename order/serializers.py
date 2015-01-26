@@ -37,7 +37,7 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
         geo_field = "mpoint"
         fields = ('identifier', 'mpoint','group')
 
-class LGroupSerializer(serializers.HyperlinkedModelSerializer):
+class LGroupSerializer(serializers.HyperLinkedModelSerializer):
     class Meta:
         model = LGroup
 
