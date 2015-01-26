@@ -8,6 +8,8 @@ router = routers.DefaultRouter()
 
 router.register(r'ars', views.AreaViewSet)
 router.register(r'lamp', views.LampViewSet)
+router.register(r'volume', views.VolumeViewSet)
+
 
 from django.contrib import admin
 admin.autodiscover()
