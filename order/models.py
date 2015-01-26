@@ -79,7 +79,7 @@ class Volume(models.Model):
 class Lamp(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
     mpoint = models.PointField()
-    group = models.ForeignKey('LGroup', blank=True, null=True )
+    #group = models.ForeignKey('LGroup', blank=True, null=True )
     objects = models.GeoManager()
         
 class LGroup(models.Model):
