@@ -73,13 +73,13 @@ class Msg( models.Model ):
 class Volume(models.Model):
     brigtness = models.IntegerField()
     volume = models.IntegerField()
-    group = models.ForeignKey('LGroup', default=1)
+    group = models.ForeignKey('LGroup', blank=True, null=True)
 
 
 class Lamp(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
     mpoint = models.PointField()
-    group = models.ForeignKey('LGroup', default=1)
+    group = models.ForeignKey('LGroup', blank=True, null=True)
     objects = models.GeoManager()
         
 class LGroup(models.Model):
