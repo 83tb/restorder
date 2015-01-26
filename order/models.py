@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-
+from django.contrib.auth.models import User, Group
 
 import uuid # from http://zesty.ca/python/uuid.html
 import sys
@@ -73,7 +73,7 @@ class Msg( models.Model ):
 class Volume(models.Model):
     brigtness = models.IntegerField()
     volume = models.IntegerField()
-    group = models.ForeignKey('Group')
+    group = models.ForeignKey('LGroup')
 
 
 class Lamp(models.Model):
