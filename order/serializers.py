@@ -21,6 +21,17 @@ class MsgSerializer( serializers.ModelSerializer ):
         fields = ('message_id','timestamp','source','destination','channel','signature','body')
 
 
+class LGroupSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = LGroup
+
+        fields = ('identifier')
+
+class VolumeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Volume
+
+        fields = ('brightness','volume','group')
 
 from rest_framework_gis import serializers
 
@@ -37,14 +48,4 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
         geo_field = "mpoint"
         fields = ('identifier', 'mpoint','group')
 
-class LGroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = LGroup
 
-        fields = ('identifier')
-
-class VolumeSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Volume
-
-        fields = ('brightness','volume','group')
