@@ -25,7 +25,7 @@ class LGroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = LGroup
 
-        fields = ('identifier')
+        fields = ('identifier',)
 
 class VolumeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
