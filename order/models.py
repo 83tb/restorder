@@ -78,12 +78,41 @@ class Volume(models.Model):
 
 class Lamp(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
-    mpoint = models.PointField()
-    group = models.ForeignKey('LGroup', blank=True, null=True )
+
+    ## New definition of Lamp
+
+    virtual_sensor = models.ForeignKey('VirtualSensor', blank=True, null=True)
+    # may contain a mistake
+    group = models.ManyToManyField('LGroup', blank=True, null=True )
+    geo_position = models.PointField()
+    hardware = models.ForeignKey('Hardware', blank=True, null=True)
+
+    # semi-static
+    working_l_setting = models.IntegerField()
+    special_l_setting = models.IntegerField()
+    presence_l_setting = models.IntegerField()
+
+    # dynamic
+
+    wanted_l_level = models.IntegerField()
+    actual_driver_value = models.IntegerField()
+
+    presence_flag = models.BooleanField()
+    special_flag = models.BooleanField()
+    working_flag = models.BooleanField()
+
+    change_required = models.BooleanField()
+
+
+    ## deleted
+    ## mpoint = models.PointField()
+
     objects = models.GeoManager()
         
 class LGroup(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
+    madli_group = models.IntegerField()
+    has_madli = models.BooleanField()
 
 
 class Area(models.Model):
@@ -93,4 +122,17 @@ class Area(models.Model):
     objects = models.GeoManager()
     level = models.IntegerField(blank=True, null=True)
     
-    
+
+class Hardware(models.Model):
+    identifier = models.CharField(max_length= 255, blank = True)
+    protocol = models.CharField(max_length= 255, blank = True)
+    building = models.CharField(max_length= 255, blank = True)
+    is_sensor = models.BooleanField()
+    type = models.CharField(max_length= 255, blank = True)
+    computer_ip = models.CharField(max_length= 255, blank = True)
+    address = models.CharField(max_length= 255, blank = True)
+
+
+class Building(models.Model):
+    identifier = models.CharField(max_length= 255, blank = True)
+    label = models.CharField(max_length = 255, blank = True)

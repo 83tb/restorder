@@ -221,12 +221,11 @@ def turnOff(request, template="action.html"):
     
 def setDim(request, template="action.html"):
     lamp_number = int(request.GET['lamp_number'])
-    dim_ad = int(request.GET['address'])
+
     dim_level = int(request.GET['dim_level'])
     
-    executeCommand('SetAddr',lamp_number,range(dim_ad,dim_ad+1))
-    executeCommand('WriteAddr',lamp_number,range(dim_level,dim_level+1))
-    executeCommand('WriteAddr',lamp_number,range(dim_level,dim_level+1))
+    executeCommand('On',lamp_number,range(dim_level,dim_level+1))
+    executeCommand('On',lamp_number,range(dim_level,dim_level+1))
 
     context = {"output": "Dim does not do output"}
     return render(request, template, context)
