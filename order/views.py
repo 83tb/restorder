@@ -6,7 +6,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from order.serializers import UserSerializer, GroupSerializer, VolumeSerializer, LGroupSerializer
 from order.models import Msg
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListApiView
 from order.models import Lamp, Area, Volume, LGroup
 from order.serializers import AreaSerializer, LampSerializer
 from rest_framework.renderers import JSONRenderer, YAMLRenderer
