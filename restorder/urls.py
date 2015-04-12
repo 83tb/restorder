@@ -10,6 +10,7 @@ router.register(r'ars', views.AreaViewSet)
 router.register(r'lamp', views.LampViewSet)
 router.register(r'volume', views.VolumeViewSet)
 router.register(r'lgroup', views.LGroupViewSet)
+router.register(r'lamploc', views.LampList)
 
 
 

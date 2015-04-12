@@ -65,6 +65,7 @@ class VolumeViewSet(viewsets.ModelViewSet):
 
 
 
+
 from order.models import Msg
 from order.serializers import MsgSerializer
 from django.http import Http404
@@ -111,6 +112,17 @@ from metro.libmadli import getCommandNumber
 
 from time import time
 
+from rest_framework_gis.filters import InBBoxFilter
+
+import models, serializers
+
+class LampList(ListAPIView):
+
+    queryset = models.Lamp.objects.all()
+    serializer_class = serializers.LampSerializer
+    bbox_filter_field = 'point'
+    filter_backends = (InBBoxFilter, )
+    bbox_filter_include_overlapping = True # Optional
 
 
 def shxNR(arg, serObj):

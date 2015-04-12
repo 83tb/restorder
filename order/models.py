@@ -97,11 +97,11 @@ class Lamp(models.Model):
     wanted_l_level = models.IntegerField()
     actual_driver_value = models.IntegerField()
 
-    presence_flag = models.BooleanField()
-    special_flag = models.BooleanField()
-    working_flag = models.BooleanField()
+    presence_flag = models.BooleanField(default=False)
+    special_flag = models.BooleanField(default=False)
+    working_flag = models.BooleanField(default=False)
 
-    change_required = models.BooleanField()
+    change_required = models.BooleanField(default=False)
 
 
     ## deleted
@@ -112,7 +112,7 @@ class Lamp(models.Model):
 class LGroup(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
     madli_group = models.IntegerField()
-    has_madli = models.BooleanField()
+    has_madli = models.BooleanField(default=False)
 
 
 class Area(models.Model):
@@ -127,7 +127,7 @@ class Hardware(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
     protocol = models.CharField(max_length= 255, blank = True)
     building = models.CharField(max_length= 255, blank = True)
-    is_sensor = models.BooleanField()
+    is_sensor = models.BooleanField(default=False)
     type = models.CharField(max_length= 255, blank = True)
     computer_ip = models.CharField(max_length= 255, blank = True)
     address = models.CharField(max_length= 255, blank = True)
