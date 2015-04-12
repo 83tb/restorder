@@ -105,7 +105,7 @@ class Lamp(models.Model):
 
 
     ## deleted
-    ## mpoint = models.PointField()
+    mpoint = models.PointField()
 
     objects = models.GeoManager()
         
