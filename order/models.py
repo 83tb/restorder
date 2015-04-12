@@ -136,3 +136,16 @@ class Hardware(models.Model):
 class Building(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
     label = models.CharField(max_length = 255, blank = True)
+
+
+class Sensor(models.Model):
+    identifier = models.CharField(max_length= 255, blank = True)
+    value = models.CharField(max_length= 255, blank = True)
+
+
+class VirtualSensor(models.Model):
+    identifier = models.CharField(max_length= 255, blank = True)
+    formula = models.CharField(max_length= 255, blank = True)
+
+
+
