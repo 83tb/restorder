@@ -51,7 +51,7 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
 
 
 
-    objects = models.GeoManager()
+
 
 
 class HardwareSerializer(serializers.GeoFeatureModelSerializer):
