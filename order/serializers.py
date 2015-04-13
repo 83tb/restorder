@@ -54,8 +54,7 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
 
 
 
-class HardwareSerializer(serializers.GeoFeatureModelSerializer):
-    class Meta:
+class HardwareSerializer(serializers.HyperlinkedModelSerializer):    class Meta:
         model = Hardware
 
         fields = ('identifier', 'protocol','building','is_sensor','type','computer_ip')
