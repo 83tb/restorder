@@ -34,6 +34,15 @@ class VolumeSerializer(serializers.HyperlinkedModelSerializer):
 
         fields = ('brightness','volume','group')
 
+
+
+class HardwareSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Hardware
+
+        fields = ('identifier', 'protocol','building','is_sensor','type','computer_ip')
+
+
 from rest_framework_gis import serializers
 
 
@@ -52,11 +61,4 @@ class LampSerializer(serializers.GeoFeatureModelSerializer):
 
 
 
-
-
-class HardwareSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Hardware
-
-        fields = ('identifier', 'protocol','building','is_sensor','type','computer_ip')
 
