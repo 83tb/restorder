@@ -77,6 +77,15 @@ class Volume(models.Model):
 
 
 class Lamp(models.Model):
+
+    def recount(self):
+        if self.special_flag:
+            self.actual_driver_value = self.wanted_l_level = self.special_l_setting
+            self.change_required = True
+        self.save()
+
+
+
     identifier = models.CharField(max_length= 255, blank = True)
 
     ## New definition of Lamp
@@ -140,6 +149,7 @@ class Building(models.Model):
 
 class Sensor(models.Model):
     identifier = models.CharField(max_length= 255, blank = True)
+    hardware = models.ForeignKey('Hardware', blank=True, null=True)
     value = models.CharField(max_length= 255, blank = True)
 
 

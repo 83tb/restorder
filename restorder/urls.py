@@ -6,10 +6,10 @@ router = routers.DefaultRouter()
 #router.register(r'users', views.UserViewSet)
 #router.register(r'groups', views.GroupViewSet)
 
-router.register(r'ars', views.AreaViewSet)
+#router.register(r'ars', views.AreaViewSet)
 router.register(r'lamp', views.LampViewSet)
-router.register(r'volume', views.VolumeViewSet)
-router.register(r'lgroup', views.LGroupViewSet)
+#router.register(r'volume', views.VolumeViewSet)
+#router.register(r'lgroup', views.LGroupViewSet)
 router.register(r'hardware', views.HardwareViewSet)
 
 #router.register(r'lamploc', views.LampList.as_view())

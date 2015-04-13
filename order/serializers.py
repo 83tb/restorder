@@ -40,7 +40,7 @@ class HardwareSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Hardware
 
-        fields = ('identifier', 'protocol','building','is_sensor','type','computer_ip')
+        fields = ('identifier', 'protocol','building','is_sensor','type','computer_ip','address')
 
 
 from rest_framework_gis import serializers
