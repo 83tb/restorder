@@ -7,8 +7,8 @@ from rest_framework import viewsets
 from order.serializers import UserSerializer, GroupSerializer, VolumeSerializer, LGroupSerializer
 from order.models import Msg
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
-from order.models import Lamp, Area, Volume, LGroup
-from order.serializers import AreaSerializer, LampSerializer
+from order.models import Lamp, Area, Volume, LGroup, Hardware
+from order.serializers import AreaSerializer, LampSerializer, HardwareSerializer
 from rest_framework.renderers import JSONRenderer, YAMLRenderer
 
 
@@ -44,8 +44,22 @@ class LampViewSet(viewsets.ModelViewSet):
     """
     queryset = Lamp.objects.all()
     serializer_class = LampSerializer
-#    renderer_classes = (JSONRenderer, YAMLRenderer)      
-    
+#    renderer_classes = (JSONRenderer, YAMLRenderer)
+
+
+class HardwareViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Hardware.objects.all()
+    serializer_class = HardwareSerializer
+#    renderer_classes = (JSONRenderer, YAMLRenderer)
+
+
+
+
+
+
 
 class LGroupViewSet(viewsets.ModelViewSet):
     """
