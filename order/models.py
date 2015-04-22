@@ -81,8 +81,8 @@ class Lamp(models.Model):
     def recount(self):
         if self.special_flag:
             self.actual_driver_value = self.special_l_setting
-            print self.special_l_setting
-            self.wanted_l_level = 0 #self.special_l_setting
+
+            self.wanted_l_level = self.special_l_setting
             self.change_required = True
         self.save()
 
