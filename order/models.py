@@ -86,6 +86,10 @@ class Lamp(models.Model):
             self.change_required = True
         self.save()
 
+    def save(self, *args, **kwargs):
+        self.recount()
+        super(Lamp, self).save(*args, **kwargs)
+
 
 
     identifier = models.CharField(max_length= 255, blank = True)
